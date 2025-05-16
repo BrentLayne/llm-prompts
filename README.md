@@ -2,17 +2,12 @@
 
 A repository of LLM prompts that can be served over MCP to your LLM. Write once, prompt anywhere.
 
-# Running the MCP Server
-
-A TypeScript-based Model Context Protocol (MCP) server that exposes LLM prompts for LLM-assisted software planning and development. Built using the official [MCP SDK](https://github.com/modelcontextprotocol/typescript-sdk).
-
-Use this MCP server to pull in reusable LLM prompts to help with software development
 
 ---
 
 ## Features
 
-- Exposes planning instructions and other LLM prompts via MCP
+- Exposes LLM prompts via MCP
 - Built with TypeScript and the official MCP SDK
 - Hot-reload development workflow with yarn and tsx
 - Easily extendable for additional LLM prompts
@@ -35,27 +30,27 @@ Use this MCP server to pull in reusable LLM prompts to help with software develo
 
 ## Usage
 
-### Development (with hot reload)
+Add the MCP server to Cursor (or your other MCP client of choice) and get the LLM to pull in prompts that you can then use to prompt the LLM!
+
+Example cursor usage:
+```typescript
+// in Cursor's mcp.json file
+
+```
+
+## Development workflow,
+
+### Run the MCP server locally (with hot reload)
 
 ```sh
 yarn dev
 ```
 
-### Build
+
+### Debug with MCP Inspector (make sure to build first to pick up latest changes)
 
 ```sh
 yarn build
-```
-
-### Run (production)
-
-```sh
-yarn start
-```
-
-### Debug with MCP Inspector
-
-```sh
 yarn inspector
 ```
 
