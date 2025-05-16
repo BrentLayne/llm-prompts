@@ -235,7 +235,7 @@ This plan outlines the steps to implement a TypeScript-based MCP server in the `
 
 #### Task #5: (Optional) Document usage and protocol endpoints
 
-- Status: not started
+- Status: complete
 - Description: Add a README or documentation section describing how to run the server and interact with it using MCP clients (e.g., Claude Desktop, MCP Inspector).
 - Acceptance Criteria:
   - Clear instructions for running and testing the server
