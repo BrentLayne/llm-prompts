@@ -1,4 +1,8 @@
-# MCP Server
+# LLM Prompts
+
+A repository of LLM prompts that can be served over MCP to your LLM. Write once, prompt anywhere.
+
+# Running the MCP Server
 
 A TypeScript-based Model Context Protocol (MCP) server that exposes LLM prompts for LLM-assisted software planning and development. Built using the official [MCP SDK](https://github.com/modelcontextprotocol/typescript-sdk).
 
