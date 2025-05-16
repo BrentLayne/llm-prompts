@@ -13,10 +13,13 @@ A repository of LLM prompts that can be served over MCP to your LLM. Write once,
 
 ## Available prompts
 
-#### `getPlanningInstructions`
+#### `getCodeChangePlanningInstructions`
 
-- **Description:** Provides detailed, step-by-step planning instructions for LLM-assisted software development. Use this tool to help a software developer and LLM collaboratively create a robust, actionable plan for implementing a software change, including best practices for clarifying requirements, structuring tasks, and managing dependencies.
-- **Returns:** The full contents of [`llm-prompts/planning-instructions.md`](../llm-prompts/planning-instructions.md)
+- **Description:** Provides detailed, step-by-step instructions for planning an LLM-assisted code change.
+  Use this tool to help a software developer and LLM collaboratively create a robust, actionable plan
+  for implementing a code change, including best practices for clarifying requirements,
+  structuring tasks, and managing dependencies.
+- **Returns:** The full contents of [`llm-prompts/code-change-planning-instructions.md`](../llm-prompts/code-change-planning-instructions.md)
 
 #### `getGitCommitInstructions`
 
@@ -28,6 +31,7 @@ A repository of LLM prompts that can be served over MCP to your LLM. Write once,
 ## Installation
 
 1. **Clone the repository**
+
    ```sh
    git clone git@github.com:BrentLayne/llm-prompts.git
    ```
@@ -79,7 +83,6 @@ Example Cursor usage:
 - Add a new prompt to [src/llm-prompts](./src/llm-prompts/)
 - Register the prompt in [src/mcp-server/server.ts](./src/mcp-server/server.ts)
 
-
 ### Run the MCP server locally (with hot reload)
 
 ```sh
@@ -92,7 +95,6 @@ yarn dev
 yarn build
 yarn inspector
 ```
-
 
 ---
 

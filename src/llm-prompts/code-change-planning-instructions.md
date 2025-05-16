@@ -1,6 +1,6 @@
-# Planning Instructions for LLM-Assisted Software Implementation
+# Instructions for How to Plan LLM-Assisted Code Changes
 
-These instructions are primarily for a Large Language Model (LLM) to follow, with a senior human software developer acting as collaborator and reviewer. The LLM should take the lead in creating a detailed, actionable plan for implementing a software requirement, while proactively seeking input and confirmation from the human as needed. Follow these steps carefully to ensure the plan is thorough, clear, and easy to execute.
+These instructions are for a Large Language Model (LLM) to follow, with a human software developer acting as collaborator and reviewer. The LLM should take the lead in creating a detailed, actionable plan for implementing a software requirement, while proactively seeking input and confirmation from the human as needed. Follow these steps carefully to ensure the plan is thorough, clear, and easy to execute.
 
 ---
 

@@ -14,16 +14,16 @@ const server = new McpServer({
 });
 
 server.tool(
-  "getPlanningInstructions",
-  `Provides detailed, step-by-step planning instructions for LLM-assisted software development.
+  "getCodeChangePlanningInstructions",
+  `Provides detailed, step-by-step instructions for planning an LLM-assisted code change.
   Use this tool to help a software developer and LLM collaboratively create a robust, actionable plan
-  for implementing a software change, including best practices for clarifying requirements,
+  for implementing a code change, including best practices for clarifying requirements,
   structuring tasks, and managing dependencies.`,
   {}, // No parameters
   async () => {
     const promptPath = path.resolve(
       __dirname,
-      "../src/llm-prompts/planning-instructions.md"
+      "../src/llm-prompts/code-change-planning-instructions.md"
     );
     const text = fs.readFileSync(promptPath, "utf8");
     return {
@@ -34,7 +34,9 @@ server.tool(
 
 server.tool(
   "getGitCommitInstructions",
-  `Returns best-practice instructions and examples for writing semantic git commit messages. Use this tool to help a developer or LLM generate clear, conventional commit messages that communicate the intent and context of code changes, following the semantic commit format.`,
+  `Returns best-practice instructions and examples for writing semantic git commit messages.
+  Use this tool to help a developer or LLM generate clear, conventional commit messages that
+  communicate the intent and context of code changes, following the semantic commit format.`,
   {}, // No parameters
   async () => {
     const promptPath = path.resolve(
