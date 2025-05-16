@@ -99,5 +99,3 @@ yarn inspector
 ## References
 
 - [MCP SDK Documentation](https://github.com/modelcontextprotocol/typescript-sdk)
-- [Building MCP Servers Tutorial](https://medium.com/@cstroliadavis/building-mcp-servers-536969d27809)
-- [Yarn Migration Guide](https://classic.yarnpkg.com/lang/en/docs/migrating-from-npm/)
