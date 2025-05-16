@@ -9,12 +9,74 @@ This plan outlines the steps to implement a TypeScript-based MCP server in the `
 #### Task #1: Initialize TypeScript project and install MCP SDK (with Yarn)
 
 - Status: not started
-- Description: Set up a new Node.js project with TypeScript in the `mcp-server` directory. Install the MCP SDK and related dependencies using Yarn. Configure the project for ESM modules as recommended by the SDK docs.
+- Description:
+  Set up a new Node.js project with TypeScript in the `mcp-server` directory using Yarn. Follow best practices for a greenfield TypeScript project:
+  - Create initial directory structure:
+    ```
+    src/
+    ├── server.ts      # Main server entry point
+    ├── handlers/      # Directory for tool handlers
+    └── types/         # Directory for TypeScript type definitions
+    ```
+  - Initialize the project and install dependencies:
+    - `yarn init -y`
+    - `yarn add @modelcontextprotocol/sdk dotenv`
+    - `yarn add --dev typescript @types/node nodemon ts-node eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin`
+  - Initialize TypeScript config: `yarn tsc --init`
+  - Edit `package.json` to add `"type": "module"`
+  - Configure `tsconfig.json` with recommended options:
+    - `"rootDir": "./src"`, `"outDir": "./build"`, `"strict": true`, `"esModuleInterop": true`, `"skipLibCheck": true`, `"forceConsistentCasingInFileNames": true`, `"target": "ES2022"`, `"module": "Node16"`, `"moduleResolution": "Node16"`
+    - `"include": ["src/**/*"]`
+  - Add a `.gitignore` file to exclude `node_modules/`, `build/`, `.env`, etc.
+  - Add a `.eslintrc.json` for TypeScript linting:
+    ```json
+    {
+      "parser": "@typescript-eslint/parser",
+      "plugins": ["@typescript-eslint"],
+      "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"]
+    }
+    ```
+  - Create `.env.example` for documenting environment variables:
+    ```
+    # Server Configuration
+    PORT=3000
+    NODE_ENV=development
+    ```
+  - Add VS Code debug configuration in `.vscode/launch.json`:
+    ```json
+    {
+      "version": "0.2.0",
+      "configurations": [
+        {
+          "type": "node",
+          "request": "launch",
+          "name": "Debug Server",
+          "skipFiles": ["<node_internals>/**"],
+          "program": "${workspaceFolder}/src/server.ts",
+          "preLaunchTask": "tsc: build - tsconfig.json",
+          "outFiles": ["${workspaceFolder}/build/**/*.js"]
+        }
+      ]
+    }
+    ```
+  - Add scripts to `package.json`:
+    ```json
+    "scripts": {
+      "dev": "nodemon src/server.ts",
+      "build": "tsc",
+      "start": "node build/server.js",
+      "lint": "eslint src/**/*.ts",
+      "lint:fix": "eslint src/**/*.ts --fix"
+    }
+    ```
+  - (Optional) Add a `README.md` to document setup and usage
 - Acceptance Criteria:
-  - `package.json` and `tsconfig.json` exist and are configured
-  - MCP SDK (`@modelcontextprotocol/sdk`) is installed
+  - `package.json`, `tsconfig.json`, `yarn.lock`, `.gitignore`, `.eslintrc.json`, `.env.example`, and `src/` directory structure exist and are configured
+  - MCP SDK and all dev dependencies are installed
   - Project uses ESM modules (`"type": "module"` in `package.json`)
-  - `yarn.lock` is present
+  - Scripts for dev/build/start/lint are present
+  - VS Code debugging is configured
+  - ESLint is configured for TypeScript
 - Assumptions:
   - No existing project setup in `mcp-server`
 - Dependencies:
@@ -23,23 +85,46 @@ This plan outlines the steps to implement a TypeScript-based MCP server in the `
   - `mcp-server/package.json`
   - `mcp-server/tsconfig.json`
   - `mcp-server/yarn.lock`
+  - `mcp-server/.gitignore`
+  - `mcp-server/.eslintrc.json`
+  - `mcp-server/.env.example`
+  - `mcp-server/.vscode/launch.json`
+  - `mcp-server/src/`
+  - `mcp-server/README.md` (optional)
 - Examples for implementing:
+
   - Good example:
+
     ```sh
+    # Create directory structure
+    mkdir -p src/{handlers,types}
+    touch src/server.ts
+
+    # Initialize project and install dependencies
     yarn init -y
-    yarn add @modelcontextprotocol/sdk
-    yarn add --dev typescript @types/node
+    yarn add @modelcontextprotocol/sdk dotenv
+    yarn add --dev typescript @types/node nodemon ts-node eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+
+    # Initialize TypeScript
     yarn tsc --init
-    # Edit package.json: add "type": "module"
+
+    # Create config files
+    echo 'node_modules/\nbuild/\n.env' > .gitignore
+    mkdir .vscode
+    # Create .eslintrc.json, .env.example, and launch.json as specified above
     ```
+
   - Bad example:
     ```sh
-    npm install @modelcontextprotocol/sdk
+    # No organized directory structure
+    # Missing ESLint and debug configuration
+    # No environment variable management
     ```
   - References:
     - https://github.com/modelcontextprotocol/typescript-sdk
     - https://medium.com/@cstroliadavis/building-mcp-servers-536969d27809
-    - https://classic.yarnpkg.com/lang/en/docs/migrating-from-npm/
+    - https://www.digitalocean.com/community/tutorials/typescript-new-project
+    - https://losikov.medium.com/part-1-project-initial-setup-typescript-node-js-31ba3aa7fbf1
 
 ---
 
