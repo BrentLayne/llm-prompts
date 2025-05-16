@@ -19,12 +19,12 @@ A repository of LLM prompts that can be served over MCP to your LLM. Write once,
   Use this tool to help a software developer and LLM collaboratively create a robust, actionable plan
   for implementing a code change, including best practices for clarifying requirements,
   structuring tasks, and managing dependencies.
-- **Returns:** The full contents of [`llm-prompts/code-change-planning-instructions.md`](../llm-prompts/code-change-planning-instructions.md)
+- **Returns:** The full contents of [`code-change-planning-instructions.md`](./src/llm-prompts/code-change-planning-instructions.md)
 
 #### `getGitCommitInstructions`
 
 - **Description:** Returns best-practice instructions and examples for writing semantic git commit messages. Use this tool to help a developer or LLM generate clear, conventional commit messages that communicate the intent and context of code changes, following the semantic commit format.
-- **Returns:** The full contents of [`llm-prompts/git-commit-instructions.md`](../llm-prompts/git-commit-instructions.md)
+- **Returns:** The full contents of [`git-commit-instructions.md`](./src/llm-prompts/git-commit-instructions.md)
 
 ---
 

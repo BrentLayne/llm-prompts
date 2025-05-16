@@ -93,3 +93,5 @@ Use the following statuses for each task:
 ---
 
 By following these instructions, the LLM and human developer can collaboratively create a robust, actionable plan that is easy to follow, review, and execute for any software requirement.
+
+Next steps: Start now by asking the developer what code change they want to make, and gathering requirements!
