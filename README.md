@@ -77,7 +77,7 @@ Example Cursor usage:
 ## Local development workflow
 
 - Add a new prompt to [src/llm-prompts](./src/llm-prompts/)
-- Register the prompt in [src/mcp-sever/server.ts](./src/mcp-sever/server.ts)
+- Register the prompt in [src/mcp-server/server.ts](./src/mcp-sever/server.ts)
 
 
 ### Run the MCP server locally (with hot reload)
