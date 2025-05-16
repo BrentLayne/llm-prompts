@@ -165,7 +165,7 @@ This plan outlines the steps to implement a TypeScript-based MCP server in the `
 
 #### Task #3: Implement specific tool request handlers for prompts
 
-- Status: not started
+- Status: complete
 - Description:
   Define and register custom tool handlers for each prompt or function you want to expose. For example, implement a `getPlanningInstructions` tool that returns the contents of the planning instructions prompt file from `llm-prompts/planning-instructions.md`. Each tool should have a clear schema and return type, and be registered with the MCP server using the SDK's `server.tool` method.
 - Acceptance Criteria:
@@ -205,7 +205,7 @@ This plan outlines the steps to implement a TypeScript-based MCP server in the `
 
 #### Task #4: Add development and run scripts
 
-- Status: not started
+- Status: complete
 - Description: Add Yarn scripts for development (`nodemon` + `ts-node`) and production (`tsc` + `node`).
 - Acceptance Criteria:
   - `yarn dev` starts the server with hot reload
