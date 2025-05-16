@@ -64,6 +64,11 @@ yarn inspector
 - **Description:** Provides detailed, step-by-step planning instructions for LLM-assisted software development. Use this tool to help a software developer and LLM collaboratively create a robust, actionable plan for implementing a software change, including best practices for clarifying requirements, structuring tasks, and managing dependencies.
 - **Returns:** The full contents of [`llm-prompts/planning-instructions.md`](../llm-prompts/planning-instructions.md)
 
+### `getGitCommitInstructions`
+
+- **Description:** Returns best-practice instructions and examples for writing semantic git commit messages. Use this tool to help a developer or LLM generate clear, conventional commit messages that communicate the intent and context of code changes, following the semantic commit format.
+- **Returns:** The full contents of [`llm-prompts/git-commit-instructions.md`](../llm-prompts/git-commit-instructions.md)
+
 ---
 
 ## Project Structure

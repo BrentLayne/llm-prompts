@@ -32,6 +32,22 @@ server.tool(
   }
 );
 
+server.tool(
+  "getGitCommitInstructions",
+  `Returns best-practice instructions and examples for writing semantic git commit messages. Use this tool to help a developer or LLM generate clear, conventional commit messages that communicate the intent and context of code changes, following the semantic commit format.`,
+  {}, // No parameters
+  async () => {
+    const promptPath = path.resolve(
+      __dirname,
+      "../../llm-prompts/git-commit-instructions.md"
+    );
+    const text = fs.readFileSync(promptPath, "utf8");
+    return {
+      content: [{ type: "text", text }],
+    };
+  }
+);
+
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
