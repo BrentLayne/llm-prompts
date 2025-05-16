@@ -23,7 +23,7 @@ server.tool(
   async () => {
     const promptPath = path.resolve(
       __dirname,
-      "../../llm-prompts/planning-instructions.md"
+      "../src/llm-prompts/planning-instructions.md"
     );
     const text = fs.readFileSync(promptPath, "utf8");
     return {
@@ -39,7 +39,7 @@ server.tool(
   async () => {
     const promptPath = path.resolve(
       __dirname,
-      "../../llm-prompts/git-commit-instructions.md"
+      "../src/llm-prompts/git-commit-instructions.md"
     );
     const text = fs.readFileSync(promptPath, "utf8");
     return {
