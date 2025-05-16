@@ -22,6 +22,7 @@
     "build": "tsc",
     "start": "node build/server.js",
     "lint": "eslint src/**/*.ts",
-    "lint:fix": "eslint src/**/*.ts --fix"
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "inspector": "npx @modelcontextprotocol/inspector node build/server.js"
   }
 }
