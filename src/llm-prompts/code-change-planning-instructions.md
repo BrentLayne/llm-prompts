@@ -71,27 +71,60 @@ Use the following statuses for each task:
 - Example for `blocked`: "This task is blocked until the API credentials are provided by the DevOps team."
 - Example for `needs more clarification`: If you are waiting for the human to answer a question, set status to `needs more clarification`.
 
-## 4. Task Management
+## 4. Task Dependencies and Sequencing
 
-- Mark each task as `complete` only when it has been finished and meets the acceptance criteria.
-- Update task statuses as work progresses.
-- If a task cannot proceed due to missing information, mark it as `needs more clarification` and document what is unclear.
+- Clearly identify and document dependencies between tasks.
+- Order tasks logically to minimize blockers and enable parallel work where possible.
+- Consider the natural flow of development (e.g., database schema before API endpoints, authentication before protected routes).
+- Flag tasks that can be worked on independently to enable parallel development.
 
-## 5. Review and Iteration
+## 5. Plan Quality and Completeness
+
+- Ensure each task is detailed enough for independent execution by an LLM or developer.
+- Include comprehensive acceptance criteria that are specific, measurable, and testable.
+- Provide concrete code examples that illustrate both good and bad implementation approaches.
+- Verify that all necessary files and dependencies are identified and documented.
+- Consider edge cases, error handling, and security implications in task descriptions.
+
+## 6. Review and Iteration
 
 - After drafting the plan, prompt the human developer to review and provide feedback.
   - Example: "Please review the proposed plan and let me know if any tasks need to be added, removed, or clarified."
 - Be ready to revise the plan based on feedback and new information.
-- Treat the plan as a living document. Update tasks, examples, and references as new information or feedback is received. If modifying the plan itself, confirm with the human if that's ok to do.
+- Treat the plan as a living document during the planning phase, but once execution begins, changes should be carefully considered and documented.
 
-## 6. Output Format
+## 7. Output Format
 
 - Create a `plan.md` file and write the plan in the `plan.md` file in raw markdown, following the structure above.
 - Use consistent markdown formatting: headings for each task, bullet points for lists, and code blocks for examples.
+- Include a brief project overview at the top of the plan explaining the overall goal and approach.
+- Number tasks sequentially and use descriptive titles that clearly indicate what each task accomplishes.
 - No explicit changelog is required; rely on version control (e.g., git) for history.
+
+### Example Plan Structure
+
+```markdown
+# Project: [Brief Description]
+
+## Overview
+
+[2-3 sentences describing the overall goal and approach]
+
+## Tasks
+
+#### Task #1: [Descriptive title]
+
+[Full task template as defined above]
+
+#### Task #2: [Descriptive title]
+
+[Full task template as defined above]
+
+...
+```
 
 ---
 
-By following these instructions, the LLM and human developer can collaboratively create a robust, actionable plan that is easy to follow, review, and execute for any software requirement.
+By following these instructions, the LLM and human developer can collaboratively create a robust, actionable plan that serves as a clear roadmap for implementation. The plan should be comprehensive enough that task execution can proceed systematically using the companion task completion instructions.
 
-Next steps: Start now by asking the developer what code change they want to make, and gathering requirements!
+**Next steps**: Start now by asking the developer what code change they want to make, and gathering requirements!

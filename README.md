@@ -26,6 +26,13 @@ A repository of LLM prompts that can be served over MCP to your LLM. Write once,
 - **Description:** Returns best-practice instructions and examples for writing semantic git commit messages. Use this tool to help a developer or LLM generate clear, conventional commit messages that communicate the intent and context of code changes, following the semantic commit format.
 - **Returns:** The full contents of [`git-commit-instructions.md`](./src/llm-prompts/git-commit-instructions.md)
 
+#### `getCodeChangeTaskCompletionInstructions`
+
+- **Description:** Provides detailed, step-by-step instructions for completing a code change task.
+  Use this tool to get instructions for completing a code change task defined in the plan.md file.
+  Instructions include best practices for testing, debugging, and committing changes.
+- **Returns:** The full contents of [`code-change-task-completion-instructions.md`](./src/llm-prompts/code-change-task-completion-instructions.md)
+
 ---
 
 ## Installation

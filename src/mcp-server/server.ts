@@ -13,48 +13,62 @@ const server = new McpServer({
   version: "1.0.0",
 });
 
-server.tool(
-  "getCodeChangePlanningInstructions",
-  `Provides detailed, step-by-step instructions for planning an LLM-assisted code change.
+const registerPrompt = ({
+  name,
+  description,
+  fileName,
+}: {
+  name: string;
+  description: string;
+  fileName: string;
+}) => {
+  server.tool(
+    name,
+    description,
+    {}, // No parameters
+    async () => {
+      const promptPath = path.resolve(
+        __dirname,
+        `../src/llm-prompts/${fileName}.md`
+      );
+      const text = fs.readFileSync(promptPath, "utf8");
+      return {
+        content: [{ type: "text", text }],
+      };
+    }
+  );
+};
+
+registerPrompt({
+  name: "getCodeChangePlanningInstructions",
+  fileName: "code-change-planning-instructions",
+  description: `Provides detailed, step-by-step instructions for planning an LLM-assisted code change.
   Use this tool to help a software developer and LLM collaboratively create a robust, actionable plan
   for implementing a code change, including best practices for clarifying requirements,
   structuring tasks, and managing dependencies.`,
-  {}, // No parameters
-  async () => {
-    const promptPath = path.resolve(
-      __dirname,
-      "../src/llm-prompts/code-change-planning-instructions.md"
-    );
-    const text = fs.readFileSync(promptPath, "utf8");
-    return {
-      content: [{ type: "text", text }],
-    };
-  }
-);
+});
 
-server.tool(
-  "getGitCommitInstructions",
-  `Returns best-practice instructions and examples for writing semantic git commit messages.
+registerPrompt({
+  name: "getGitCommitInstructions",
+  fileName: "git-commit-instructions",
+  description: `Returns best-practice instructions and examples for writing semantic git commit messages.
   Use this tool to help a developer or LLM generate clear, conventional commit messages that
   communicate the intent and context of code changes, following the semantic commit format.`,
-  {}, // No parameters
-  async () => {
-    const promptPath = path.resolve(
-      __dirname,
-      "../src/llm-prompts/git-commit-instructions.md"
-    );
-    const text = fs.readFileSync(promptPath, "utf8");
-    return {
-      content: [{ type: "text", text }],
-    };
-  }
-);
+});
 
-async function main() {
+registerPrompt({
+  name: "getCodeChangeTaskCompletionInstructions",
+  fileName: "code-change-task-completion-instructions",
+  description: `Provides detailed, step-by-step instructions for completing a code change task.
+  Use this tool to get instructions for completing a code change task defined in the plan.md file.
+  Instructions include best practices for testing, debugging, and committing changes.`,
+});
+
+const main = async () => {
   const transport = new StdioServerTransport();
   await server.connect(transport);
   console.error("MCP server running on stdio");
-}
+};
 
 main().catch((err) => {
   console.error("Fatal error:", err);
