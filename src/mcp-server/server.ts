@@ -57,11 +57,22 @@ registerPrompt({
 });
 
 registerPrompt({
+  name: "getCodeChangePlanningInstructionsWithTdd",
+  fileName: "code-change-planning-instructions-with-tdd",
+  description: `Provides detailed, step-by-step instructions for planning an LLM-assisted code change.
+  Use this tool to help a software developer and LLM collaboratively create a robust, test-driven plan
+  for implementing a code change, including best practices for clarifying requirements,
+  structuring tasks, and managing dependencies.
+  Call this tool when the developer specifies they want to write a code change using TDD.`,
+});
+
+registerPrompt({
   name: "getCodeChangeTaskCompletionInstructions",
   fileName: "code-change-task-completion-instructions",
   description: `Provides detailed, step-by-step instructions for completing a code change task.
   Use this tool to get instructions for completing a code change task defined in the plan.md file.
-  Instructions include best practices for testing, debugging, and committing changes.`,
+  Instructions include best practices for testing, debugging, and committing changes.
+  Call this tool when the developer specifies something like "Help me implement the first task in the plan"`,
 });
 
 const main = async () => {
